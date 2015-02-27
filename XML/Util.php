@@ -128,10 +128,8 @@ class XML_Util
      * return API version
      *
      * @return string $version API version
-     * @access public
-     * @static
      */
-    function apiVersion()
+    public static function apiVersion()
     {
         return '1.1';
     }
@@ -172,11 +170,9 @@ class XML_Util
      *                                by the htmlentities() function
      *
      * @return string string with replaced chars
-     * @access public
-     * @static
      * @see reverseEntities()
      */
-    function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
+    public static function replaceEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
         $encoding = 'ISO-8859-1')
     {
         switch ($replaceEntities) {
@@ -238,11 +234,9 @@ class XML_Util
      *                                by the html_entity_decode() function
      *
      * @return string string with replaced chars
-     * @access public
-     * @static
      * @see replaceEntities()
      */
-    function reverseEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
+    public static function reverseEntities($string, $replaceEntities = XML_UTIL_ENTITIES_XML,
         $encoding = 'ISO-8859-1')
     {
         switch ($replaceEntities) {
@@ -282,11 +276,9 @@ class XML_Util
      * @param bool   $standalone document is standalone (or not)
      *
      * @return string xml declaration
-     * @access public
-     * @static
      * @uses attributesToString() to serialize the attributes of the XML declaration
      */
-    function getXMLDeclaration($version = '1.0', $encoding = null,
+    public static function getXMLDeclaration($version = '1.0', $encoding = null,
         $standalone = null)
     {
         $attributes = array(
@@ -321,11 +313,9 @@ class XML_Util
      * @param string $internalDtd internal dtd entries
      *
      * @return string doctype declaration
-     * @access public
-     * @static
      * @since 0.2
      */
-    function getDocTypeDeclaration($root, $uri = null, $internalDtd = null)
+    public static function getDocTypeDeclaration($root, $uri = null, $internalDtd = null)
     {
         if (is_array($uri)) {
             $ref = sprintf(' PUBLIC "%s" "%s"', $uri['id'], $uri['uri']);
@@ -375,12 +365,10 @@ class XML_Util
      *                               XML_UTIL_ENTITIES_HTML)
      *
      * @return string string representation of the attributes
-     * @access public
-     * @static
      * @uses replaceEntities() to replace XML entities in attribute values
      * @todo allow sort also to be an options array
      */
-    function attributesToString($attributes, $sort = true, $multiline = false,
+    public static function attributesToString($attributes, $sort = true, $multiline = false,
         $indent = '    ', $linebreak = "\n", $entities = XML_UTIL_ENTITIES_XML)
     {
         /*
@@ -446,12 +434,10 @@ class XML_Util
      *                      or only XHTML (XML_UTIL_COLLAPSE_XHTML_ONLY) ones.
      *
      * @return string XML
-     * @access public
-     * @static
      * @todo PEAR CS - unable to avoid "space after open parens" error
      *       in the IF branch
      */
-    function collapseEmptyTags($xml, $mode = XML_UTIL_COLLAPSE_ALL)
+    public static function collapseEmptyTags($xml, $mode = XML_UTIL_COLLAPSE_ALL)
     {
         if ($mode == XML_UTIL_COLLAPSE_XHTML_ONLY) {
             return preg_replace(
@@ -496,12 +482,10 @@ class XML_Util
      * @param bool   $sortAttributes  Whether to sort the attributes or not
      *
      * @return string XML tag
-     * @access public
-     * @static
      * @see createTagFromArray()
      * @uses createTagFromArray() to create the tag
      */
-    function createTag($qname, $attributes = array(), $content = null,
+    public static function createTag($qname, $attributes = array(), $content = null,
         $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES,
         $multiline = false, $indent = '_auto', $linebreak = "\n",
         $sortAttributes = true)
@@ -576,15 +560,13 @@ class XML_Util
      * @param bool   $sortAttributes  Whether to sort the attributes or not
      *
      * @return string XML tag
-     * @access public
-     * @static
      * @see createTag()
      * @uses attributesToString() to serialize the attributes of the tag
      * @uses splitQualifiedName() to get local part and namespace of a qualified name
      * @uses createCDataSection()
      * @uses raiseError()
      */
-    function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES,
+    public static function createTagFromArray($tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES,
         $multiline = false, $indent = '_auto', $linebreak = "\n",
         $sortAttributes = true)
     {
@@ -693,11 +675,9 @@ class XML_Util
      * @param bool   $sortAttributes Whether to sort the attributes or not
      *
      * @return string XML start element
-     * @access public
-     * @static
      * @see createEndElement(), createTag()
      */
-    function createStartElement($qname, $attributes = array(), $namespaceUri = null,
+    public static function createStartElement($qname, $attributes = array(), $namespaceUri = null,
         $multiline = false, $indent = '_auto', $linebreak = "\n",
         $sortAttributes = true)
     {
@@ -747,11 +727,9 @@ class XML_Util
      * @param string $qname qualified tagname (including namespace)
      *
      * @return string XML end element
-     * @access public
-     * @static
      * @see createStartElement(), createTag()
      */
-    function createEndElement($qname)
+    public static function createEndElement($qname)
     {
         $element = sprintf('</%s>', $qname);
         return $element;
@@ -770,10 +748,8 @@ class XML_Util
      * @param string $content content of the comment
      *
      * @return string XML comment
-     * @access public
-     * @static
      */
-    function createComment($content)
+    public static function createComment($content)
     {
         $comment = sprintf('<!-- %s -->', $content);
         return $comment;
@@ -792,10 +768,8 @@ class XML_Util
      * @param string $data data of the CData section
      *
      * @return string CData section with content
-     * @access public
-     * @static
      */
-    function createCDataSection($data)
+    public static function createCDataSection($data)
     {
         return sprintf('<![CDATA[%s]]>',
             preg_replace('/\]\]>/', ']]]]><![CDATA[>', strval($data)));
@@ -823,10 +797,8 @@ class XML_Util
      * @param string $defaultNs default namespace (optional)
      *
      * @return array array containing namespace and local part
-     * @access public
-     * @static
      */
-    function splitQualifiedName($qname, $defaultNs = null)
+    public static function splitQualifiedName($qname, $defaultNs = null)
     {
         if (strstr($qname, ':')) {
             $tmp = explode(':', $qname);
@@ -863,12 +835,10 @@ class XML_Util
      * @param string $string string that should be checked
      *
      * @return mixed true, if string is a valid XML name, PEAR error otherwise
-     * @access public
-     * @static
      * @todo support for other charsets
      * @todo PEAR CS - unable to avoid 85-char limit on second preg_match
      */
-    function isValidName($string)
+    public static function isValidName($string)
     {
         // check for invalid chars
         if (!preg_match('/^[[:alpha:]_]\\z/', $string{0})) {
@@ -898,11 +868,9 @@ class XML_Util
      * @param int    $code error code
      *
      * @return PEAR_Error
-     * @access public
-     * @static
      * @todo PEAR CS - should this use include_once instead?
      */
-    function raiseError($msg, $code)
+    public static function raiseError($msg, $code)
     {
         require_once 'PEAR.php';
         return PEAR::raiseError($msg, $code);
