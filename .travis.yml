@@ -19,3 +19,4 @@ script:
   - pear install --force *.tgz
   - pear list
   - composer install
+  - ./vendor/bin/phpunit tests/
