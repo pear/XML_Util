@@ -1,6 +1,6 @@
 # XML_Util - Methods to work with XML documents
 
-[![Build Status](https://travis-ci.org/pear/XML_Util.svg?branch=master)](https://travis-ci.org/pear/XML_Util)
+[![Build Status](https://travis-ci.org/pear/XML_Util.svg?branch=trunk)](https://travis-ci.org/pear/XML_Util)
     
 
 Selection of methods that are often needed when working with XML documents.
