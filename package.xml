@@ -22,46 +22,47 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2015-02-27</date>
- <time>13:23:02</time>
+ <date>2017-01-29</date>
+ <time>11:40:00</time>
  <version>
-  <release>1.3.0</release>
-  <api>1.3.0</api>
+  <release>1.4.0a1</release>
+  <api>1.4.0</api>
  </version>
  <stability>
-  <release>stable</release>
+  <release>alpha</release>
   <api>stable</api>
  </stability>
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
 
  <notes>
-* Set minimum PHP version to 5.3.0
-* Mark static methods with static keyword
+* Set minimum PHP version to 5.4.0
+* Set minimum PEAR version to 1.10.1
  </notes>
 
  <contents>
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" name="examples/example.php" role="doc" />
    <file baseinstalldir="/" name="examples/example2.php" role="doc" />
-   <file baseinstalldir="/" name="tests/testBasic_apiVersion.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_attributesToString.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_collapseEmptyTags.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createCDataSection.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createComment.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createEndElement.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createStartElement.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createTag.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createTagFromArray.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_getDocTypeDeclaration.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_getXmlDeclaration.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_isValidName.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_raiseError.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_replaceEntities.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_reverseEntities.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_splitQualifiedName.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_4950.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_5392.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_18343.phpt" role="test" />
+   <file baseinstalldir="/" name="tests/AbstractUnitTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ApiVersionTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/AttributesToStringTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CollapseEmptyTagsTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateCDataSectionTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateCommentTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateEndElementTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateStartElementTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateTagTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateTagFromArrayTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/GetDocTypeDeclarationTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/GetXmlDeclarationTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/IsValidNameTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/RaiseErrorTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ReplaceEntitiesTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ReverseEntitiesTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/SplitQualifiedNameTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug4950Tests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug5392Tests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug18343Tests.php" role="test" />
    <file baseinstalldir="/" name="XML/Util.php" role="php">
     <tasks:replace from="@version@" to="version" type="package-info" />
    </file>
@@ -71,10 +72,10 @@
  <dependencies>
   <required>
    <php>
-    <min>5.3.0</min>
+    <min>5.4.0</min>
    </php>
    <pearinstaller>
-    <min>1.4.3</min>
+    <min>1.10.1</min>
    </pearinstaller>
    <extension>
     <name>pcre</name>
@@ -524,6 +525,23 @@ Bug #20293	Broken installation for 1.2.2
    <notes>
 * Set minimum PHP version to 5.3.0
 * Mark static methods with static keyword
+   </notes>
+  </release>
+
+  <release>
+   <version>
+    <release>1.4.0a1</release>
+    <api>1.4.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>stable</api>
+   </stability>
+   <date>2017-01-29</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>
+* Set minimum PHP version to 5.4.0
+* Set minimum PEAR version to 1.10.1
    </notes>
   </release>
 

@@ -4,3 +4,14 @@ composer.phar
 vendor
 README.html
 dist/
+
+# Eclipse
+.buildpath
+.project
+.settings
+
+# tarballs
+*.tgz
+
+# buildtools
+build/
