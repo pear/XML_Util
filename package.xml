@@ -43,25 +43,26 @@
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" name="examples/example.php" role="doc" />
    <file baseinstalldir="/" name="examples/example2.php" role="doc" />
-   <file baseinstalldir="/" name="tests/testBasic_apiVersion.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_attributesToString.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_collapseEmptyTags.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createCDataSection.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createComment.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createEndElement.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createStartElement.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createTag.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_createTagFromArray.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_getDocTypeDeclaration.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_getXmlDeclaration.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_isValidName.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_raiseError.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_replaceEntities.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_reverseEntities.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBasic_splitQualifiedName.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_4950.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_5392.phpt" role="test" />
-   <file baseinstalldir="/" name="tests/testBug_18343.phpt" role="test" />
+   <file baseinstalldir="/" name="tests/AbstractUnitTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ApiVersionTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/AttributesToStringTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CollapseEmptyTagsTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateCDataSectionTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateCommentTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateEndElementTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateStartElementTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateTagTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/CreateTagFromArrayTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/GetDocTypeDeclarationTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/GetXmlDeclarationTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/IsValidNameTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/RaiseErrorTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ReplaceEntitiesTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/ReverseEntitiesTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/SplitQualifiedNameTests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug4950Tests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug5392Tests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug18343Tests.php" role="test" />
    <file baseinstalldir="/" name="XML/Util.php" role="php">
     <tasks:replace from="@version@" to="version" type="package-info" />
    </file>

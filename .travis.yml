@@ -13,7 +13,6 @@ script:
   - pear list
   - pear install --force package.xml
   - pear list
-  - pear run-tests --showdiff -r tests
   - pear package
   - pear package-validate
   - pear install --force *.tgz

@@ -127,7 +127,7 @@ class XML_Util
      */
     public static function apiVersion()
     {
-        return '1.1';
+        return '1.4';
     }
 
     /**
