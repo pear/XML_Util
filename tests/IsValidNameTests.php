@@ -19,7 +19,7 @@ class IsValidNameTests extends AbstractUnitTests
     {
         $tagName = "invalidTag?";
         $result = XML_Util::isValidName($tagName);
-        $this->assertInstanceOf(PEAR_Error::class, $result);
+        $this->assertInstanceOf('PEAR_Error', $result);
         $expectedError = "XML names may only contain alphanumeric chars, period, hyphen, colon and underscores";
         $this->assertEquals($expectedError, $result->getMessage());
     }
@@ -31,7 +31,7 @@ class IsValidNameTests extends AbstractUnitTests
     {
         $tagName = "1234five";
         $result = XML_Util::isValidName($tagName);
-        $this->assertInstanceOf(PEAR_Error::class, $result);
+        $this->assertInstanceOf('PEAR_Error', $result);
         $expectedError = "XML names may only start with letter or underscore";
         $this->assertEquals($expectedError, $result->getMessage());
     }
