@@ -10,7 +10,7 @@ class RaiseErrorTests extends AbstractUnitTests
         $code = 12345;
         $message = "I am an error";
         $error = XML_Util::raiseError($message, $code);
-        $this->assertInstanceOf(PEAR_Error::class, $error);
+        $this->assertInstanceOf('PEAR_Error', $error);
         $this->assertEquals($message, $error->getMessage());
         $this->assertEquals($code, $error->getCode());
     }
