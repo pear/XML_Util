@@ -47,6 +47,39 @@ class CollapseEmptyTagsTests extends AbstractUnitTests
     /**
      * @covers XML_Util::collapseEmptyTags()
      */
+    public function testCollapseEmptyTagsOnOneEmptyTagAlongsideNonemptyTagAlongsideEmptyTagWithCollapseAll()
+    {
+        $emptyTag = "<foo></foo>";
+        $otherTag = "<bar>baz</bar>";
+        $expected = "<foo /><bar>baz</bar><foo />";
+        $this->assertEquals($expected, XML_Util::collapseEmptyTags($emptyTag . $otherTag . $emptyTag, XML_UTIL_COLLAPSE_ALL));
+    }
+
+    /**
+     * @covers XML_Util::collapseEmptyTags()
+     */
+    public function testCollapseEmptyTagsOnOneEmptyPrefixedTagAlongsideNonemptyTagAlongsideEmptyPrefixedTagWithCollapseAll()
+    {
+        $emptyTag = "<foo:foo2></foo:foo2>";
+        $otherTag = "<bar>baz</bar>";
+        $expected = "<foo:foo2 /><bar>baz</bar><foo:foo2 />";
+        $this->assertEquals($expected, XML_Util::collapseEmptyTags($emptyTag . $otherTag . $emptyTag, XML_UTIL_COLLAPSE_ALL));
+    }
+
+    /**
+     * @covers XML_Util::collapseEmptyTags()
+     */
+    public function testCollapseEmptyTagsOnOneEmptyNsPrefixedTagAlongsideNonemptyTagAlongsideEmptyNsPrefixedTagWithCollapseAll()
+    {
+        $emptyTag = "<http://foo.com:foo2></http://foo.com:foo2>";
+        $otherTag = "<bar>baz</bar>";
+        $expected = "<http://foo.com:foo2 /><bar>baz</bar><http://foo.com:foo2 />";
+        $this->assertEquals($expected, XML_Util::collapseEmptyTags($emptyTag . $otherTag . $emptyTag, XML_UTIL_COLLAPSE_ALL));
+    }
+
+    /**
+     * @covers XML_Util::collapseEmptyTags()
+     */
     public function testCollapseEmptyTagsOnOneEmptyTagWithCollapseXhtml()
     {
         $emptyTag = "<foo></foo>";
