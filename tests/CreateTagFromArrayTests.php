@@ -318,4 +318,14 @@ EOF;
         $expected = "<bar />";
         $this->assertEquals($expected, XML_Util::createTagFromArray($original));
     }
+
+    /**
+     * @covers XML_Util::createTagFromArray()
+     */
+    public function testCreateTagFromArrayForCdataWithExplicitlyEmptyContentDoesNotCollapseTag()
+    {
+        $original = array('qname' => 'tag1', 'content' => '');
+        $expected = "<tag1><![CDATA[]]></tag1>";
+        $this->assertEquals($expected, XML_Util::createTagFromArray($original, XML_UTIL_CDATA_SECTION));
+    }
 }
