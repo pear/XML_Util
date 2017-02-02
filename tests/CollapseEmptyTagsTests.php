@@ -61,8 +61,8 @@ class CollapseEmptyTagsTests extends AbstractUnitTests
     {
         $emptyTag = "<foo></foo>";
         $otherTag = "<bar>baz</bar>";
-        $xhtmlTag = "<b></b>";
-        $expected = "<foo></foo><b></b><bar>baz</bar>";
+        $xhtmlTag = "<br></br>";
+        $expected = "<foo></foo><br /><bar>baz</bar>";
         $this->assertEquals($expected, XML_Util::collapseEmptyTags($emptyTag . $xhtmlTag . $otherTag, XML_UTIL_COLLAPSE_XHTML_ONLY));
     }
 }
