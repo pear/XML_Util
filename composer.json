@@ -34,7 +34,8 @@
         "./"
     ],
     "require": {
-        "pear/pear-core-minimal": "^1.9.5"
+        "php": ">=5.4",
+        "pear/pear-core-minimal": "^1.10.1"
     },
     "require-dev": {
         "phpunit/phpunit": "@stable"
