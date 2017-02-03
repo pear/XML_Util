@@ -22,8 +22,8 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2017-01-29</date>
- <time>11:40:00</time>
+ <date>2017-02-03</date>
+ <time>10:20:00</time>
  <version>
   <release>1.4.0a1</release>
   <api>1.4.0</api>
@@ -37,6 +37,11 @@
  <notes>
 * Set minimum PHP version to 5.4.0
 * Set minimum PEAR version to 1.10.1
+
+* Adds a new XML_UTIL_COLLAPSE_NONE option
+  for preventing empty tag collapsing.
+
+* Request #15467 CDATA sections and blank nodes
  </notes>
 
  <contents>
@@ -537,11 +542,16 @@ Bug #20293	Broken installation for 1.2.2
     <release>alpha</release>
     <api>stable</api>
    </stability>
-   <date>2017-01-29</date>
+   <date>2017-02-03</date>
    <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
    <notes>
 * Set minimum PHP version to 5.4.0
 * Set minimum PEAR version to 1.10.1
+
+* Adds a new XML_UTIL_COLLAPSE_NONE option
+  for preventing empty tag collapsing.
+
+* Request #15467 CDATA sections and blank nodes
    </notes>
   </release>
 
