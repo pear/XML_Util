@@ -318,4 +318,33 @@ EOF;
         $expected = "<bar />";
         $this->assertEquals($expected, XML_Util::createTagFromArray($original));
     }
+
+    /**
+     * @covers XML_Util::createTagFromArray()
+     */
+    public function testCreateTagFromArrayWithImplicitlyEmptyContentAndCollapseNoneDoesNotCollapseTag()
+    {
+        $original = array('qname' => 'tag1');
+        $expected = "<tag1></tag1>";
+        $actual = XML_Util::createTagFromArray(
+            $original,
+            XML_UTIL_REPLACE_ENTITIES,  // default $replaceEntities
+            false,                      // default $multiline
+            '_auto',                    // default $indent
+            "\n",                       // default $linebreak
+            true,                       // default $sortAttributes
+            XML_UTIL_COLLAPSE_NONE
+        );
+        $this->assertEquals($expected, $actual);
+    }
+
+    /**
+     * @covers XML_Util::createTagFromArray()
+     */
+    public function testCreateTagFromArrayForCdataWithExplicitlyEmptyContentDoesNotCollapseTag()
+    {
+        $original = array('qname' => 'tag1', 'content' => '');
+        $expected = "<tag1><![CDATA[]]></tag1>";
+        $this->assertEquals($expected, XML_Util::createTagFromArray($original, XML_UTIL_CDATA_SECTION));
+    }
 }

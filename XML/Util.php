@@ -98,6 +98,11 @@ define('XML_UTIL_ENTITIES_XML_REQUIRED', 2);
 define('XML_UTIL_ENTITIES_HTML', 3);
 
 /**
+ * Do not collapse any empty tags.
+ */
+define('XML_UTIL_COLLAPSE_NONE', 0);
+
+/**
  * Collapse all empty tags.
  */
 define('XML_UTIL_COLLAPSE_ALL', 1);
@@ -454,15 +459,40 @@ class XML_Util
      */
     public static function collapseEmptyTags($xml, $mode = XML_UTIL_COLLAPSE_ALL)
     {
-        if ($mode == XML_UTIL_COLLAPSE_XHTML_ONLY) {
-            return preg_replace(
-                '/<(area|base(?:font)?|br|col|frame|hr|img|input|isindex|link|meta|'
-                . 'param)([^>]*)><\/\\1>/s',
-                '<\\1\\2 />',
-                $xml
-            );
-        } else {
-            return preg_replace('/<(\w+)([^>]*)><\/\\1>/s', '<\\1\\2 />', $xml);
+        switch ($mode) {
+            case XML_UTIL_COLLAPSE_ALL:
+                $preg1 =
+                    '~<' .
+                        '(?:' .
+                            '(https?://[^:\s]+:\w+)' .  // <http://foo.com:bar  ($1)
+                            '|(\w+:\w+)' .              // <foo:bar             ($2)
+                            '|(\w+)' .                  // <foo                 ($3)
+                        ')+' .
+                        '([^>]*)' .                     // attributes           ($4)
+                    '>' .
+                    '<\/(\1|\2|\3)>' .
+                    '~s'
+                ;
+                $preg2 =
+                    '<' .
+                        '${1}${2}${3}' .    // tag
+                        '${4}' .            // attributes
+                    ' />'
+                ;
+                return preg_replace($preg1, $preg2, $xml);
+                break;
+            case XML_UTIL_COLLAPSE_XHTML_ONLY:
+                return preg_replace(
+                    '/<(area|base(?:font)?|br|col|frame|hr|img|input|isindex|link|meta|'
+                    . 'param)([^>]*)><\/\\1>/s',
+                    '<\\1\\2 />',
+                    $xml
+                );
+                break;
+            case XML_UTIL_COLLAPSE_NONE:
+                // fall thru
+            default:
+                return $xml;
         }
     }
 
@@ -496,6 +526,7 @@ class XML_Util
      *                                at the same column)
      * @param string $linebreak       string used for linebreaks
      * @param bool   $sortAttributes  Whether to sort the attributes or not
+     * @param int    $collapseTagMode How to handle a content-less, and thus collapseable, tag
      *
      * @return string XML tag
      * @see    createTagFromArray()
@@ -505,7 +536,7 @@ class XML_Util
         $qname, $attributes = array(), $content = null,
         $namespaceUri = null, $replaceEntities = XML_UTIL_REPLACE_ENTITIES,
         $multiline = false, $indent = '_auto', $linebreak = "\n",
-        $sortAttributes = true
+        $sortAttributes = true, $collapseTagMode = XML_UTIL_COLLAPSE_ALL
     ) {
         $tag = array(
             'qname'      => $qname,
@@ -524,7 +555,8 @@ class XML_Util
 
         return XML_Util::createTagFromArray(
             $tag, $replaceEntities, $multiline,
-            $indent, $linebreak, $sortAttributes
+            $indent, $linebreak, $sortAttributes,
+            $collapseTagMode
         );
     }
 
@@ -577,6 +609,7 @@ class XML_Util
      *                                at the same column)
      * @param string $linebreak       string used for linebreaks
      * @param bool   $sortAttributes  Whether to sort the attributes or not
+     * @param int    $collapseTagMode How to handle a content-less, and thus collapseable, tag
      *
      * @return string XML tag
      *
@@ -584,12 +617,13 @@ class XML_Util
      * @uses attributesToString() to serialize the attributes of the tag
      * @uses splitQualifiedName() to get local part and namespace of a qualified name
      * @uses createCDataSection()
+     * @uses collapseEmptyTags()
      * @uses raiseError()
      */
     public static function createTagFromArray(
         $tag, $replaceEntities = XML_UTIL_REPLACE_ENTITIES,
         $multiline = false, $indent = '_auto', $linebreak = "\n",
-        $sortAttributes = true
+        $sortAttributes = true, $collapseTagMode = XML_UTIL_COLLAPSE_ALL
     ) {
         if (isset($tag['content']) && !is_scalar($tag['content'])) {
             return XML_Util::raiseError(
@@ -648,6 +682,10 @@ class XML_Util
             }
         }
 
+        if (!array_key_exists('content', $tag)) {
+            $tag['content'] = '';
+        }
+
         // check for multiline attributes
         if ($multiline === true) {
             if ($indent === '_auto') {
@@ -660,27 +698,25 @@ class XML_Util
             $tag['attributes'],
             $sortAttributes, $multiline, $indent, $linebreak
         );
-        if (!isset($tag['content']) || (string)$tag['content'] == '') {
-            $tag = sprintf('<%s%s />', $tag['qname'], $attList);
-        } else {
-            switch ($replaceEntities) {
-            case XML_UTIL_ENTITIES_NONE:
-                break;
-            case XML_UTIL_CDATA_SECTION:
-                $tag['content'] = XML_Util::createCDataSection($tag['content']);
-                break;
-            default:
-                $tag['content'] = XML_Util::replaceEntities(
-                    $tag['content'], $replaceEntities
-                );
-                break;
-            }
-            $tag = sprintf(
-                '<%s%s>%s</%s>', $tag['qname'], $attList, $tag['content'],
-                $tag['qname']
+
+        switch ($replaceEntities) {
+        case XML_UTIL_ENTITIES_NONE:
+            break;
+        case XML_UTIL_CDATA_SECTION:
+            $tag['content'] = XML_Util::createCDataSection($tag['content']);
+            break;
+        default:
+            $tag['content'] = XML_Util::replaceEntities(
+                $tag['content'], $replaceEntities
             );
+            break;
         }
-        return $tag;
+        $tag = sprintf(
+            '<%s%s>%s</%s>', $tag['qname'], $attList, $tag['content'],
+            $tag['qname']
+        );
+
+        return self::collapseEmptyTags($tag, $collapseTagMode);
     }
 
     /**
