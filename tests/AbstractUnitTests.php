@@ -1,6 +1,7 @@
 <?php
+use PHPUnit\Framework\TestCase;
 
-abstract class AbstractUnitTests extends \PHPUnit_Framework_TestCase
+abstract class AbstractUnitTests extends TestCase
 {
     public function setUp()
     {
