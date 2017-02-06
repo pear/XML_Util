@@ -459,6 +459,10 @@ class XML_Util
      */
     public static function collapseEmptyTags($xml, $mode = XML_UTIL_COLLAPSE_ALL)
     {
+        if (preg_match('~<([^>])+/>~s', $xml, $matches)) {
+            // it's already an empty tag
+            return $xml;
+        }
         switch ($mode) {
             case XML_UTIL_COLLAPSE_ALL:
                 $preg1 =
