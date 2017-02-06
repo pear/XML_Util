@@ -470,12 +470,12 @@ class XML_Util
                         ')+' .
                         '([^>]*)' .                     // attributes           ($4)
                     '>' .
-                    '<\/(\1|\2|\3)>' .
+                    '<\/(\1|\2|\3)>' .                  // 1, 2, or 3 again     ($5)
                     '~s'
                 ;
                 $preg2 =
                     '<' .
-                        '${1}${2}${3}' .    // tag
+                        '${1}${2}${3}' .    // tag (only one should have been populated)
                         '${4}' .            // attributes
                     ' />'
                 ;
