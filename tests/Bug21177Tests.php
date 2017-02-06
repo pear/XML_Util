@@ -3,10 +3,10 @@
 /**
  * Bug #21177 "XML_Util::collapseEmptyTags() can return NULL"
  *
- * Original characters of the given encoding that are "replaced"
- * should then "reverse" back to perfectly match the original.
+ * PREG returns NULL when it encounters an error.
+ * In this case, it was encountering PREG_BACKTRACK_LIMIT_ERROR.
  *
- * @link https://pear.php.net/bugs/bug.php?id=5392
+ * @link https://pear.php.net/bugs/bug.php?id=21177
  */
 class Bug21177Tests extends AbstractUnitTests
 {
