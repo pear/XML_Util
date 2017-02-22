@@ -22,10 +22,10 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2017-02-07</date>
- <time>12:00:00</time>
+ <date>2017-02-22</date>
+ <time>13:00:00</time>
  <version>
-  <release>1.4.1</release>
+  <release>1.4.2</release>
   <api>1.4.0</api>
  </version>
  <stability>
@@ -35,7 +35,7 @@
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
 
  <notes>
-* Bug #21177 XML_Util::collapseEmptyTags() can return NULL
+* Bug #21184 Collapse issue
  </notes>
 
  <contents>
@@ -564,6 +564,22 @@ Bug #20293	Broken installation for 1.2.2
    <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
    <notes>
 * Bug #21177 XML_Util::collapseEmptyTags() can return NULL
+   </notes>
+  </release>
+
+  <release>
+   <version>
+    <release>1.4.2</release>
+    <api>1.4.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2017-02-22</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>
+* Bug #21184 Collapse issue
    </notes>
   </release>
 
