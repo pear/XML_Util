@@ -486,11 +486,13 @@ class XML_Util
                 return (preg_replace($preg1, $preg2, $xml)?:$xml);
                 break;
             case XML_UTIL_COLLAPSE_XHTML_ONLY:
-                return preg_replace(
-                    '/<(area|base(?:font)?|br|col|frame|hr|img|input|isindex|link|meta|'
-                    . 'param)([^>]*)><\/\\1>/s',
-                    '<\\1\\2 />',
-                    $xml
+                return (
+                    preg_replace(
+                        '/<(area|base(?:font)?|br|col|frame|hr|img|input|isindex|link|meta|'
+                        . 'param)([^>]*)><\/\\1>/s',
+                        '<\\1\\2 />',
+                        $xml
+                    ) ?: $xml
                 );
                 break;
             case XML_UTIL_COLLAPSE_NONE:
