@@ -63,6 +63,7 @@
    <file baseinstalldir="/" name="tests/Bug5392Tests.php" role="test" />
    <file baseinstalldir="/" name="tests/Bug18343Tests.php" role="test" />
    <file baseinstalldir="/" name="tests/Bug21177Tests.php" role="test" />
+   <file baseinstalldir="/" name="tests/Bug21184Tests.php" role="test" />
    <file baseinstalldir="/" name="XML/Util.php" role="php">
     <tasks:replace from="@version@" to="version" type="package-info" />
    </file>
