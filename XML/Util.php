@@ -483,7 +483,7 @@ class XML_Util
                         '${4}' .            // attributes
                     ' />'
                 ;
-                return preg_replace($preg1, $preg2, $xml);
+                return (preg_replace($preg1, $preg2, $xml)?:$xml);
                 break;
             case XML_UTIL_COLLAPSE_XHTML_ONLY:
                 return preg_replace(
