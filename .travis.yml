@@ -19,10 +19,12 @@ matrix:
     - php: 5.4
       dist: precise
     
-script:
+install:
   - pear list
-  - pear channel-update pear.php.net
-  - pear upgrade pear/pear-1.10.1
+  - pear channel-update pear
+  - pear upgrade pear/pear
+
+script:
   - pear list
   - pear install --force package.xml
   - pear list
@@ -32,3 +34,4 @@ script:
   - pear list
   - composer install
   - ./vendor/bin/phpunit -c phpunit.xml.dist
+
