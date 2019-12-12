@@ -918,7 +918,7 @@ class XML_Util
     public static function isValidName($string)
     {
         // check for invalid chars
-        if (!preg_match('/^[[:alpha:]_]\\z/', $string[0])) {
+        if (!is_string($string) || !strlen($string) || !preg_match('/^[[:alpha:]_]\\z/', $string[0])) {
             return XML_Util::raiseError(
                 'XML names may only start with letter or underscore',
                 XML_UTIL_ERROR_INVALID_START
