@@ -2,8 +2,6 @@
 composer.lock
 composer.phar
 vendor
-README.html
-dist/
 
 # Eclipse
 .buildpath
