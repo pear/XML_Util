@@ -41,7 +41,6 @@
   <dir baseinstalldir="/" name="/">
    <file baseinstalldir="/" name="examples/example.php" role="doc" />
    <file baseinstalldir="/" name="examples/example2.php" role="doc" />
-   <file baseinstalldir="/" name="tests/AbstractUnitTests.php" role="test" />
    <file baseinstalldir="/" name="tests/ApiVersionTests.php" role="test" />
    <file baseinstalldir="/" name="tests/AttributesToStringTests.php" role="test" />
    <file baseinstalldir="/" name="tests/CollapseEmptyTagsTests.php" role="test" />
