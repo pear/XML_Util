@@ -8,7 +8,7 @@
  *
  * @link https://pear.php.net/bugs/bug.php?id=5392
  */
-class Bug5392Tests extends AbstractUnitTests
+class Bug5392Tests extends \PHPUnit\Framework\TestCase
 {
     public function testReplaceEntitiesForBug5392()
     {

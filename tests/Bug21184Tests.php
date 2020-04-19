@@ -8,7 +8,7 @@
  *
  * @link https://pear.php.net/bugs/bug.php?id=21177
  */
-class Bug21184 extends AbstractUnitTests
+class Bug21184 extends \PHPUnit\Framework\TestCase
 {
     public function testBug21184()
     {

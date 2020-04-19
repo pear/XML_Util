@@ -1,6 +1,6 @@
 <?php
 
-class CreateEndElementTests extends AbstractUnitTests
+class CreateEndElementTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::createEndElement()

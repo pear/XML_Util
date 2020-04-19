@@ -1,6 +1,6 @@
 <?php
 
-class SplitQualifiedNameTests extends AbstractUnitTests
+class SplitQualifiedNameTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::splitQualifiedName()

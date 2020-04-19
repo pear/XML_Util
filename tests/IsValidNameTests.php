@@ -1,6 +1,6 @@
 <?php
 
-class IsValidNameTests extends AbstractUnitTests
+class IsValidNameTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::isValidName()

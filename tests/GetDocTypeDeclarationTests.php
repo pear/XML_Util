@@ -1,6 +1,6 @@
 <?php
 
-class GetDocTypeDeclarationTests extends AbstractUnitTests
+class GetDocTypeDeclarationTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::getDocTypeDeclaration()

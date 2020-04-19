@@ -1,6 +1,6 @@
 <?php
 
-class CollapseEmptyTagsTests extends AbstractUnitTests
+class CollapseEmptyTagsTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::collapseEmptyTags()

@@ -1,6 +1,6 @@
 <?php
 
-class RaiseErrorTests extends AbstractUnitTests
+class RaiseErrorTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::raiseError()

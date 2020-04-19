@@ -1,6 +1,6 @@
 <?php
 
-class ReverseEntitiesTests extends AbstractUnitTests
+class ReverseEntitiesTests extends \PHPUnit\Framework\TestCase
 {
     protected function getSimpleData()
     {

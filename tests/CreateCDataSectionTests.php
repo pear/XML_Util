@@ -1,6 +1,6 @@
 <?php
 
-class CreateCDataSectionTests extends AbstractUnitTests
+class CreateCDataSectionTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::createCDataSection()

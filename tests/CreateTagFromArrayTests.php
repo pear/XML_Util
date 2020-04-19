@@ -1,6 +1,6 @@
 <?php
 
-class CreateTagFromArrayTests extends AbstractUnitTests
+class CreateTagFromArrayTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::createTagFromArray()

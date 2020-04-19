@@ -1,6 +1,6 @@
 <?php
 
-class AttributesToStringTests extends AbstractUnitTests
+class AttributesToStringTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::attributesToString()

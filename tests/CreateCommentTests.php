@@ -1,6 +1,6 @@
 <?php
 
-class CreateCommentTests extends AbstractUnitTests
+class CreateCommentTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::createComment()

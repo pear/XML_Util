@@ -1,6 +1,6 @@
 <?php
 
-class CreateTagTests extends AbstractUnitTests
+class CreateTagTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::createTag()

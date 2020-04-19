@@ -1,6 +1,6 @@
 <?php
 
-class ApiVersionTests extends AbstractUnitTests
+class ApiVersionTests extends \PHPUnit\Framework\TestCase
 {
     /**
      * @covers XML_Util::apiVersion()

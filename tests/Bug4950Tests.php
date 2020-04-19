@@ -8,7 +8,7 @@
  *
  * @link https://pear.php.net/bugs/bug.php?id=4950
  */
-class Bug4950Tests extends AbstractUnitTests
+class Bug4950Tests extends \PHPUnit\Framework\TestCase
 {
     public function testCreateTagForBug4950()
     {

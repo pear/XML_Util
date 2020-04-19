@@ -8,7 +8,7 @@
  *
  * @link https://pear.php.net/bugs/bug.php?id=18343
  */
-class Bug18343Tests extends AbstractUnitTests
+class Bug18343Tests extends \PHPUnit\Framework\TestCase
 {
     private $tagArray = array(
         "qname"      => "install",
