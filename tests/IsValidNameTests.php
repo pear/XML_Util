@@ -35,4 +35,28 @@ class IsValidNameTests extends AbstractUnitTests
         $expectedError = "XML names may only start with letter or underscore";
         $this->assertEquals($expectedError, $result->getMessage());
     }
+
+    /**
+     * @covers XML_Util::isValidName()
+     */
+    public function testIsValidNameForInt()
+    {
+        $tagName = 1;
+        $result = XML_Util::isValidName($tagName);
+        $this->assertInstanceOf('PEAR_Error', $result);
+        $expectedError = "XML names may only start with letter or underscore";
+        $this->assertEquals($expectedError, $result->getMessage());
+    }
+
+    /**
+     * @covers XML_Util::isValidName()
+     */
+    public function testIsValidNameForEmptyString()
+    {
+        $tagName = '';
+        $result = XML_Util::isValidName($tagName);
+        $this->assertInstanceOf('PEAR_Error', $result);
+        $expectedError = "XML names may only start with letter or underscore";
+        $this->assertEquals($expectedError, $result->getMessage());
+    }
 }
