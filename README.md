@@ -35,8 +35,10 @@ To add as a dependency to your composer-managed application:
 ## Tests
 Run  the tests from a local composer installation:
 
-`$ composer require phpunit/phpunit`
-`$ ./vendor/bin/phpunit -c phpunit.xml.dist`
+```
+$ composer require phpunit/phpunit
+$ ./vendor/bin/phpunit -c phpunit.xml.dist
+```
 
 
 ## License
