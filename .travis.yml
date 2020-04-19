@@ -33,5 +33,6 @@ script:
   - pear list
   - pear run-tests -r tests/
   - composer install
+  - composer require phpunit/phpunit
   - ./vendor/bin/phpunit -c phpunit.xml.dist
 
