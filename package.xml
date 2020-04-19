@@ -22,9 +22,9 @@
   <email>davey@php.net</email>
   <active>no</active>
  </helper>
- <date>2019-12-05</date>
+ <date>2020-04-19</date>
  <version>
-  <release>1.4.4</release>
+  <release>1.4.5</release>
   <api>1.4.0</api>
  </version>
  <stability>
@@ -34,7 +34,7 @@
  <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
 
  <notes>
-  * PR #11: fix phplint warning
+  * PR #12: fix Trying to access array offset on value of type int
  </notes>
 
  <contents>
@@ -611,6 +611,22 @@ Bug #20293	Broken installation for 1.2.2
    <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
    <notes>
     * PR #11: fix phplint warning
+   </notes>
+  </release>
+
+  <release>
+   <version>
+    <release>1.4.5</release>
+    <api>1.4.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2020-04-19</date>
+   <license uri="http://opensource.org/licenses/bsd-license">BSD License</license>
+   <notes>
+    * PR #12: fix Trying to access array offset on value of type int
    </notes>
   </release>
 
